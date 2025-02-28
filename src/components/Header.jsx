@@ -24,16 +24,19 @@ const Header = ({ toggleDarkMode, darkMode }) => {
         </Link>
 
         <nav className="hidden md:flex space-x-6">
-          {["Home", "About", "Tech Stack", "Services", "Projects", "Contact"].map((item) => (
-            <Link 
-              key={item} 
-              href={`#${item.toLowerCase()}`} 
-              className="text-black dark:text-white hover:text-primary"
-            >
-              {item}
-            </Link>
-          ))}
-        </nav>
+  {["Home", "About", "Tech Stack", "Services", "Projects", "Contact"].map((item) => (
+    <button
+      key={item}
+      onClick={() => {
+        const section = document.getElementById(item.toLowerCase());
+        if (section) section.scrollIntoView({ behavior: "smooth" });
+      }}
+      className="text-black dark:text-white hover:text-primary transition"
+    >
+      {item}
+    </button>
+  ))}
+</nav>
 
         {/* Botão de Dark Mode */}
         <button 

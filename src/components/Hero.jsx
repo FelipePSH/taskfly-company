@@ -70,13 +70,17 @@ const Hero = () => {
       </motion.p>
 
       {/* Botão de chamada para ação */}
-      <motion.a
-        href="#serviços"
-        whileHover={{ scale: 1.1 }}
-        className="mt-6 bg-primary text-white dark:bg-blue-500 dark:text-gray-900 py-3 px-6 rounded-lg font-medium hover:bg-secondary dark:hover:bg-blue-400 transition"
-      >
-        Explore Our Services
-      </motion.a>
+      <motion.button
+  onClick={() => {
+    const section = document.getElementById("services");
+    if (section) section.scrollIntoView({ behavior: "smooth" });
+  }}
+  whileHover={{ scale: 1.1 }}
+  whileTap={{ scale: 0.95 }}
+  className="relative z-10 mt-6 bg-primary text-white dark:bg-blue-500 dark:text-gray-900 py-3 px-6 rounded-lg font-medium hover:bg-secondary dark:hover:bg-blue-400 transition cursor-pointer"
+>
+  Explore Our Services
+</motion.button>
     </section>
   );
 };
